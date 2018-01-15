@@ -36,6 +36,10 @@ defmodule InkcyclopediaApiWeb.Endpoint do
     key: "_inkcyclopedia_api_key",
     signing_salt: "eMNpgOBa"
 
+  plug CORSPlug,
+       origin: "*",
+       headers: [ "Authorization" | CORSPlug.defaults()[:headers]]
+
   plug InkcyclopediaApiWeb.Router
 
   @doc """

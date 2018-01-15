@@ -41,7 +41,8 @@ defmodule InkcyclopediaApi.Mixfile do
       {:phauxth, "~> 1.2"},
       {:bcrypt_elixir, "~> 1.0"},
       {:bamboo, "~> 0.8"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:cors_plug, "~> 1.2"},
     ]
   end
 
