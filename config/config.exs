@@ -17,6 +17,15 @@ config :inkcyclopedia_api, InkcyclopediaApiWeb.Endpoint,
   pubsub: [name: InkcyclopediaApi.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+# Phauxth authentication configuration
+config :phauxth,
+  token_salt: "M/q0a7DG",
+  endpoint: InkcyclopediaApiWeb.Endpoint
+
+# Mailer configuration
+config :inkcyclopedia_api, InkcyclopediaApi.Mailer,
+  adapter: Bamboo.LocalAdapter
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

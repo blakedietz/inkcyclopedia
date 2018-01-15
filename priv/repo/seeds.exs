@@ -2,10 +2,16 @@
 #
 #     mix run priv/repo/seeds.exs
 #
-# Inside the script, you can read and write to any of your
-# repositories directly:
+# It is also run when you use the command `mix ecto.setup`
 #
-#     InkcyclopediaApi.Repo.insert!(%InkcyclopediaApi.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+
+users = [
+  %{email: "jane.doe@example.com", password: "password"},
+  %{email: "john.smith@example.org", password: "password"},
+  %{email: "blakedietz@gmail.com", password: "password"}
+]
+
+for user <- users do
+  {:ok, user} = InkcyclopediaApi.Accounts.create_user(user)
+  InkcyclopediaApi.Accounts.confirm_user(user)
+end
